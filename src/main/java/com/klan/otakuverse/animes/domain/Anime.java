@@ -1,7 +1,12 @@
 package com.klan.otakuverse.animes.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Date;
 
+@AllArgsConstructor
+@Data
 public class Anime {
 	private String id;
 	private String name;
@@ -16,6 +21,5 @@ public class Anime {
 	private Date createdAt;
 	private Date updatedAt;
 
-	Anime() {
-	}
+	Anime() {}
 }
