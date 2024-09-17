@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.klan.otakuverse.animes.domain.AnimeCharacter" table="animes_characters">
+    <composite-id>
+      <key-many-to-one name="anime" class="com.klan.otakuverse.animes.domain.Anime" column="anime_id"/>
+      <key-many-to-one name="character" class="com.klan.otakuverse.characters.domain.Character" column="character_id"/>
+    </composite-id>
+
+    <property name="createdAt" column="created_at" type="timestamp"/>
+    <property name="updatedAt" column="updated_at" type="timestamp"/>
+
+    <many-to-one name="role" class="com.klan.otakuverse.character_roles.domain.CharacterRole" column="role_id" not-null="true"/>
+  </class>
+</hibernate-mapping>

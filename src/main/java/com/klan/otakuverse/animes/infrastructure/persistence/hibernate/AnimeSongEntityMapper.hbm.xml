@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.klan.otakuverse.animes.domain.AnimeSong" table="animes_songs">
+    <composite-id>
+      <key-many-to-one name="anime" class="com.klan.otakuverse.animes.domain.Anime" column="anime_id"/>
+      <key-many-to-one name="song" class="com.klan.otakuverse.songs.domain.Song" column="song_id"/>
+    </composite-id>
+
+    <property name="order" type="integer"/>
+
+    <many-to-one name="type" class="com.klan.otakuverse.song_types.domain.SongType" column="type_id" not-null="true"/>
+  </class>
+</hibernate-mapping>
