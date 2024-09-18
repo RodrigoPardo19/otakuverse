@@ -6,7 +6,7 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.seasons.domain.Season" table="seasons">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="name" type="text"/>
     <property name="releaseDate" column="release_date" type="date"/>
     <property name="finishedDate" column="finished_date" type="date"/>

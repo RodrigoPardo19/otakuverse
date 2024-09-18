@@ -6,20 +6,20 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.auth.domain.User" table="users">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="email" type="string" length="255"/>
     <property name="password" type="text"/>
     <property name="name" type="string" length="255"/>
     <property name="lastName" column="last_name" type="string" length="255"/>
     <property name="nickName" column="nick_name" type="string" length="255"/>
     <property name="thumbnail" type="string" length="255"/>
-    <property name="aboutMe" type="text"/>
+    <property name="aboutMe" column="about_me" type="text"/>
     <property name="createdAt" column="created_at" type="timestamp"/>
     <property name="updatedAt" column="updated_at" type="timestamp"/>
 
-    <set name="roles" table="roles_users" cascade="save-update" lazy="true">
+    <set name="roles" table="roles_users" cascade="save-update" lazy="extra">
       <key column="user_id"/>
-      <many-to-many class="com.klan.otakuverse.auth.domain.Role" column="role_id" fetch="select"/>
+      <many-to-many class="com.klan.otakuverse.auth.domain.Role" column="role_id"/>
     </set>
   </class>
 </hibernate-mapping>

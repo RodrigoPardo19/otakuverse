@@ -6,7 +6,7 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.anime_states.domain.AnimeState" table="anime_states">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="status" type="string" length="255"/>
     <property name="createdAt" column="created_at" type="timestamp"/>
     <property name="updatedAt" column="updated_at" type="timestamp"/>

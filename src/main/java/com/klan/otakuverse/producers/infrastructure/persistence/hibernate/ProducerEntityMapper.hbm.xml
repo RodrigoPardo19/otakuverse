@@ -6,18 +6,18 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.producers.domain.Producer" table="producers">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="name" type="text"/>
     <property name="description" type="text"/>
     <property name="establishedAt" column="established_at" type="date"/>
-    <property name="webSite" type="string" length="255"/>
+    <property name="webSite" column="web_site" type="string" length="255"/>
     <property name="cover" type="string" length="255"/>
     <property name="createdAt" column="created_at" type="timestamp"/>
     <property name="updatedAt" column="updated_at" type="timestamp"/>
 
-    <set name="animes" inverse="true" lazy="true">
+    <set name="animes" table="animes_producers" inverse="true" lazy="extra">
       <key column="producer_id"/>
-      <many-to-many class="com.klan.otakuverse.animes.domain.Anime"/>
+      <many-to-many class="com.klan.otakuverse.animes.domain.Anime" column="anime_id"/>
     </set>
   </class>
 </hibernate-mapping>

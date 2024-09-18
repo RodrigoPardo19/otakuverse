@@ -6,7 +6,7 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.characters.domain.Character" table="characters">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="fullName" column="full_name" type="string" length="255"/>
     <property name="alias" type="string" length="255"/>
     <property name="cover" type="string" length="255"/>

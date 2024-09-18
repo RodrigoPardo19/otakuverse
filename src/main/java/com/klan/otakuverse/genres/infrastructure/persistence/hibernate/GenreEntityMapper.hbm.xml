@@ -6,19 +6,20 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.genres.domain.Genre" table="genres">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="name" type="string" length="255"/>
     <property name="createdAt" column="created_at" type="timestamp"/>
     <property name="updatedAt" column="updated_at" type="timestamp"/>
 
-    <set name="animes" inverse="true" lazy="true">
-      <key column="genre_id"/>
-      <many-to-many class="com.klan.otakuverse.animes.domain.Anime"/>
+    <set name="animes" table="animes_genres" inverse="true">
+      <key column="genre_id" not-null="true"/>
+      <many-to-many class="com.klan.otakuverse.animes.domain.Anime" column="anime_id"/>
     </set>
 
-    <set name="mangas" inverse="true" lazy="true">
+    <set name="mangas" table="mangas_genres" inverse="true" lazy="extra">
       <key column="genre_id"/>
-      <many-to-many class="com.klan.otakuverse.mangas.domain.Manga"/>
+      <many-to-many class="com.klan.otakuverse.mangas.domain.Manga" column="manga_id"/>
     </set>
   </class>
 </hibernate-mapping>
+

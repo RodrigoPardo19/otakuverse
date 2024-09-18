@@ -6,11 +6,11 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.animes.domain.Anime" table="animes">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="name" type="text"/>
     <property name="cover" type="string" length="255"/>
     <property name="synopsis" type="text"/>
-    <property name="episodes" type="integer"/>
+    <property name="episodes" type="long"/>
     <property name="releaseDate" column="release_date" type="date"/>
     <property name="finishedDate" column="finished_date" type="date"/>
     <property name="background" type="text"/>
@@ -24,22 +24,22 @@
     <many-to-one name="premiere" class="com.klan.otakuverse.japanese_seasons.domain.JapaneseSeason" column="premiered_id"/>
     <many-to-one name="manga" class="com.klan.otakuverse.mangas.domain.Manga" column="manga_id"/>
 
-    <set name="genres" table="anime_genres" cascade="save-update" lazy="true">
-      <key column="anime_id"/>
-      <many-to-many class="com.klan.otakuverse.genres.domain.Genre" column="genre_id" fetch="select"/>
+    <set name="genres" table="animes_genres" lazy="extra">
+      <key column="anime_id" />
+      <many-to-many class="com.klan.otakuverse.genres.domain.Genre" column="genre_id" />
     </set>
 
-    <set name="studios" table="studios_anime" cascade="save-update" lazy="true">
+    <set name="studios" table="studios_animes" cascade="save-update" lazy="extra">
       <key column="anime_id"/>
-      <many-to-many class="com.klan.otakuverse.studios.domain.Studio" column="studio_id" fetch="select"/>
+      <many-to-many class="com.klan.otakuverse.studios.domain.Studio" column="studio_id"/>
     </set>
 
-    <set name="producers" table="anime_producers" cascade="save-update" lazy="true">
+    <set name="producers" table="animes_producers" cascade="save-update" lazy="extra">
       <key column="anime_id"/>
-      <many-to-many class="com.klan.otakuverse.producers.domain.Producer" column="producer_id" fetch="select"/>
+      <many-to-many class="com.klan.otakuverse.producers.domain.Producer" column="producer_id"/>
     </set>
 
-    <set name="related" table="related_animes" lazy="true">
+    <set name="related" table="related_animes" lazy="extra">
       <key column="source_id"/>
       <many-to-many class="com.klan.otakuverse.animes.domain.Anime" column="related_id"/>
     </set>

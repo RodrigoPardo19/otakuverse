@@ -69,7 +69,7 @@ public class HibernateConfig {
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.put(AvailableSettings.TRANSFORM_HBM_XML, true);
 		hibernateProperties.put(AvailableSettings.SHOW_SQL, true);
-		hibernateProperties.put(AvailableSettings.HBM2DDL_AUTO, "none");
+		hibernateProperties.put(AvailableSettings.HBM2DDL_AUTO, "validate");
 		return hibernateProperties;
 	}
 

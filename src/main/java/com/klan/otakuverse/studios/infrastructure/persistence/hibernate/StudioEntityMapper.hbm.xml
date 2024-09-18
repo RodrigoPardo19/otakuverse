@@ -6,33 +6,33 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.studios.domain.Studio" table="studios">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="name" type="text"/>
     <property name="description" type="text"/>
     <property name="establishedAt" column="established_at" type="date"/>
-    <property name="webSite" type="string" length="255"/>
+    <property name="webSite" column="web_site" type="string" length="255"/>
     <property name="cover" type="string" length="255"/>
     <property name="createdAt" column="created_at" type="timestamp"/>
     <property name="updatedAt" column="updated_at" type="timestamp"/>
 
-    <set name="animes" inverse="true" lazy="true">
+    <set name="animes" table="studios_animes" inverse="true" lazy="extra">
       <key column="studio_id"/>
-      <many-to-many class="com.klan.otakuverse.animes.domain.Anime"/>
+      <many-to-many class="com.klan.otakuverse.animes.domain.Anime" column="anime_id"/>
     </set>
 
-    <set name="movies" inverse="true" lazy="true">
+    <set name="movies" table="studios_movies" inverse="true" lazy="extra">
       <key column="studio_id"/>
-      <many-to-many class="com.klan.otakuverse.movies.domain.Movie"/>
+      <many-to-many class="com.klan.otakuverse.movies.domain.Movie" column="movie_id"/>
     </set>
 
-    <set name="ovas" inverse="true" lazy="true">
+    <set name="ovas" table="studios_ovas" inverse="true" lazy="extra">
       <key column="studio_id"/>
-      <many-to-many class="com.klan.otakuverse.ovas.domain.OVA"/>
+      <many-to-many class="com.klan.otakuverse.ovas.domain.OVA" column="ova_id"/>
     </set>
 
-    <set name="onas" inverse="true" lazy="true">
+    <set name="onas" table="studios_onas" inverse="true" lazy="extra">
       <key column="studio_id"/>
-      <many-to-many class="com.klan.otakuverse.onas.domain.ONA"/>
+      <many-to-many class="com.klan.otakuverse.onas.domain.ONA" column="ona_id"/>
     </set>
   </class>
 </hibernate-mapping>

@@ -6,7 +6,7 @@
 <hibernate-mapping>
   <class name="com.klan.otakuverse.onas.domain.ONA" table="onas">
 
-    <id name="id" column="id" type="uuid-binary"/>
+    <id name="id" column="id" type="java.util.UUID"/>
     <property name="name" type="text"/>
     <property name="releaseDate" column="release_date" type="date"/>
     <property name="cover" type="string" length="255"/>
@@ -15,14 +15,14 @@
 
     <many-to-one name="anime" class="com.klan.otakuverse.animes.domain.Anime" column="anime_id"/>
 
-    <set name="studios" table="studios_onas" cascade="save-update" lazy="true">
+    <set name="studios" table="studios_onas" cascade="save-update" lazy="extra">
       <key column="ona_id"/>
-      <many-to-many class="com.klan.otakuverse.studios.domain.Studio" column="studio_id" fetch="select"/>
+      <many-to-many class="com.klan.otakuverse.studios.domain.Studio" column="studio_id"/>
     </set>
 
-    <set name="producers" table="producers_onas" cascade="save-update" lazy="true">
+    <set name="producers" table="producers_onas" cascade="save-update" lazy="extra">
       <key column="ona_id"/>
-      <many-to-many class="com.klan.otakuverse.producers.domain.Producer" column="producer_id" fetch="select"/>
+      <many-to-many class="com.klan.otakuverse.producers.domain.Producer" column="producer_id"/>
     </set>
   </class>
 </hibernate-mapping>
