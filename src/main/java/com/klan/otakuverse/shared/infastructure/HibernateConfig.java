@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -61,6 +63,10 @@ public class HibernateConfig {
 		dataSource.setUrl(DB_URL);
 		dataSource.setUsername(DB_USERNAME);
 		dataSource.setPassword(DB_PASSWORD);
+
+		var populator = new ResourceDatabasePopulator();
+		populator.addScript(new ClassPathResource("data.sql"));
+		populator.execute(dataSource);
 
 		return dataSource;
 	}
