@@ -17,5 +17,5 @@ public class CriticRating {
 	private Date createdAt;
 	private Date updatedAt;
 
-	CriticRating() {}
+	public CriticRating() {}
 }

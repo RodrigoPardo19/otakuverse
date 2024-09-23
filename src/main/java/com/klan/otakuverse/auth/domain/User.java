@@ -5,12 +5,13 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class User {
 
-	private String id;
+	private UUID id;
 	private String email;
 	private String password;
 	private String name;
@@ -22,5 +23,5 @@ public class User {
 	private Date updatedAt;
 	private Set<Role> roles;
 
-	User() {}
+	public User() {}
 }

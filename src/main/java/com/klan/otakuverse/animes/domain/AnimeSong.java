@@ -14,5 +14,5 @@ public class AnimeSong {
 	private Integer order;
 	private SongType type;
 
-	AnimeSong() {}
+	public AnimeSong() {}
 }

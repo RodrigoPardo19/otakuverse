@@ -16,5 +16,5 @@ public class EpisodeRating {
 	private Date createdAt;
 	private Date updatedAt;
 
-	EpisodeRating() {}
+	public EpisodeRating() {}
 }

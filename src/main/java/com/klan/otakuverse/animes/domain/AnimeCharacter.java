@@ -17,5 +17,5 @@ public class AnimeCharacter {
 	private Date createdAt;
 	private Date updatedAt;
 
-	AnimeCharacter() {}
+	public AnimeCharacter() {}
 }

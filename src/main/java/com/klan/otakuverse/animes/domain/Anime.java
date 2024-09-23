@@ -12,11 +12,13 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Anime {
-	private String id;
+
+	private UUID id;
 	private String name;
 	private String cover;
 	private String synopsis;
@@ -37,5 +39,5 @@ public class Anime {
 	private Set<Producer> producers;
 	private Set<Anime> related;
 
-	Anime() {}
+	public Anime() {}
 }

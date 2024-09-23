@@ -17,5 +17,5 @@ public class OtakuMangaRating {
 	private Date createdAt;
 	private Date updatedAt;
 
-	OtakuMangaRating() {}
+	public OtakuMangaRating() {}
 }

@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Character {
 
-	private String id;
+	private UUID id;
 	private String fullName;
 	private String alias;
 	private String cover;
@@ -17,5 +18,5 @@ public class Character {
 	private Date createdAt;
 	private Date updatedAt;
 
-	Character() {}
+	public Character() {}
 }

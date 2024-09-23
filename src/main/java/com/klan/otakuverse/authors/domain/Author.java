@@ -6,11 +6,13 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Author {
-	private String id;
+
+	private UUID id;
 	private String name;
 	private String lastName;
 	private String cover;
@@ -18,5 +20,5 @@ public class Author {
 	private Date updatedAt;
 	private Set<Manga> mangas;
 
-	Author() {}
+	public Author() {}
 }

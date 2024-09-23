@@ -5,16 +5,17 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Role {
 
-	private String id;
+	private UUID id;
 	private String role;
 	private Date createdAt;
 	private Date updatedAt;
 	private Set<Permission> permissions;
 
-	Role() {}
+	public Role() {}
 }

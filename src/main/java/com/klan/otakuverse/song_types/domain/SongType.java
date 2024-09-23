@@ -4,15 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class SongType {
 
-	private String id;
+	private UUID id;
 	private String type;
 	private Date createdAt;
 	private Date updatedAt;
 
-	SongType() {}
+	public SongType() {}
 }

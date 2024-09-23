@@ -4,15 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class MangaState {
 
-	private String id;
+	private UUID id;
 	private String status;
 	private Date createdAt;
 	private Date updatedAt;
 
-	MangaState() {}
+	public MangaState() {}
 }

@@ -28,7 +28,7 @@ public class HibernateConfig {
 	@Autowired
 	private Environment env;
 
-	HibernateConfig() {}
+	public HibernateConfig() {}
 
 	@Bean("otakuverse_transaction_manager")
 	public PlatformTransactionManager hibernateTransactionManager() throws IOException {

@@ -5,12 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Episode {
 
-	private String id;
+	private UUID id;
 	private String name;
 	private Date releaseDate;
 	private Double score;
@@ -18,5 +19,5 @@ public class Episode {
 	private Date updatedAt;
 	private Season season;
 
-	Episode() {}
+	public Episode() {}
 }

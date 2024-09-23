@@ -17,5 +17,5 @@ public class MangaCharacter {
 	private Date createdAt;
 	private Date updatedAt;
 
-	MangaCharacter() {}
+	public MangaCharacter() {}
 }

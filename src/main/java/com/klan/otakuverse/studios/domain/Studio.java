@@ -9,12 +9,13 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Studio {
 
-	private String id;
+	private UUID id;
 	private String name;
 	private String description;
 	private Date establishedAt;
@@ -27,5 +28,5 @@ public class Studio {
 	private Set<OVA> ovas;
 	private Set<ONA> onas;
 
-	Studio() {}
+	public Studio() {}
 }

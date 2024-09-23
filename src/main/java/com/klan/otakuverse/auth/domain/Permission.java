@@ -4,15 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Permission {
 
-	private String id;
+	private UUID id;
 	private String permission;
 	private Date createdAt;
 	private Date updatedAt;
 
-	Permission() {}
+	public Permission() {}
 }

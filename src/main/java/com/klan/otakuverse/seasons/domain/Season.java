@@ -6,12 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class Season {
 
-	private String id;
+	private UUID id;
 	private String name;
 	private Date releaseDate;
 	private Date finishedDate;
@@ -20,5 +21,5 @@ public class Season {
 	private Anime anime;
 	private JapaneseSeason premiere;
 
-	Season() {}
+	public Season() {}
 }

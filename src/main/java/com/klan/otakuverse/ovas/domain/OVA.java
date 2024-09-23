@@ -8,12 +8,13 @@ import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Data
 public class OVA {
 
-	private String id;
+	private UUID id;
 	private String name;
 	private Date releaseDate;
 	private String cover;
@@ -23,5 +24,5 @@ public class OVA {
 	private Set<Studio> studios;
 	private Set<Producer> producers;
 
-	OVA() {}
+	public OVA() {}
 }
