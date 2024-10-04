@@ -14,6 +14,7 @@ import java.util.Arrays;
 
 import static org.mockito.Mockito.when;
 
+// Integration tests
 public class GenreFinderTest {
 
 	@Mock
