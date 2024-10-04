@@ -22,11 +22,11 @@ jobs:
           POSTGRES_DB: test_db
         ports:
           - "5432:5432"
-        options: >
-          --health-cmd="pg_isready -U test_user -d test_db" \
-          --health-interval=10s \
-          --health-timeout=5s \
-          --health-retries=5
+        healthcheck:
+          test: ["CMD-SHELL": "pg_isready -U test_user -d test_db"]
+          interval: 10s
+          timeout: 5s
+          retries: 5
 
     steps:
       - name: Check out code
