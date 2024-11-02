@@ -16,7 +16,8 @@ const config: Config = {
 	coverageDirectory: 'coverage',
 	coverageProvider: 'v8',
 	testEnvironment: 'jsdom',
+	testMatch: ['**/tests/**/domain/**/*.spec.ts', '**/tests/**/application/**/*.spec.ts'],
 	setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.ts']
 };
 
-export default createJestConfig(config);
+export default createJestConfig(config) as Config;
