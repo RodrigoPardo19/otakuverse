@@ -31,5 +31,5 @@ module.exports = {
 		".*.js",
 		"node_modules/",
 	],
-	overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+	overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }, { files: ["tests/**/*"], env: { "jest": true } }],
 };
