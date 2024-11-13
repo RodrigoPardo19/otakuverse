@@ -1,0 +1,49 @@
+@startuml
+' convert it with additional command line argument -DRELATIVE_INCLUDE="./.." to use locally
+!if %variable_exists("RELATIVE_INCLUDE")
+  !include %get_variable_value("RELATIVE_INCLUDE")/C4_Container.puml
+!else
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!endif
+
+SHOW_PERSON_OUTLINE()
+AddElementTag("backendContainer", $fontColor=$ELEMENT_FONT_COLOR, $bgColor="#335DA5", $shape=EightSidedShape(), $legendText="backend container (eight sided)")
+
+title Otakuverse ~ A platform for anime and manga reviews
+
+Person(admin, Admin, "A backoffice platform admin")
+Person(critic, Critic, "A critic is a person interested in making professional reviews of anime")
+Person(otaku, Otaku, "An otaku is a regular user of the website.")
+
+System_Boundary(c1, "Otakuverse") {
+    Container(otakuverse_web_app, "Web Application", "React, Nextjs", "Site where otaku and critics review, list and view all anime related content")
+    Container(otakuverse_api, "API Application", "Node, Typescript, Nestjs", "Business logic for Otakuverse web app", $tags="backendContainer")
+}
+
+System_Boundary(c2, "Backoffice") {
+    Container(backoffice_web_app, "Web Application", "React, Nextjs", "Site where the admins manage the contents related to the Otakuverse contexts.")
+    Container(backoffice_api, "API Application", "Node, Typescript, Nestjs", "Business logic for Backoffice web app", $tags="backendContainer")
+}
+
+System_Boundary(c3, "Auth") {
+    Container(auth_api, "API Application", "Node, Typescript, Nestjs", "Business logic for all user authentication related processes")
+}
+
+System_Ext(message_queue, "Communication between contexts", "RabbitMQ")
+
+Rel(admin, backoffice_web_app, "Uses", "HTTPS")
+Rel(critic, otakuverse_web_app, "Uses", "HTTPS")
+Rel(otaku, otakuverse_web_app, "Uses", "HTTPS")
+
+Rel(otakuverse_web_app, otakuverse_api, "Uses", "HTTPS")
+Rel(backoffice_web_app, backoffice_api, "Uses", "HTTPS")
+
+Rel(otakuverse_web_app, auth_api, "Uses", "HTTPS")
+Rel(backoffice_web_app, auth_api, "Uses", "HTTPS")
+
+Rel(otakuverse_api, message_queue, "Pub/Sub", "RabbitMQ")
+Rel(backoffice_api, message_queue, "Pub/Sub", "RabbitMQ")
+Rel(auth_api, message_queue, "Pub/Sub", "RabbitMQ")
+
+footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
+@enduml
