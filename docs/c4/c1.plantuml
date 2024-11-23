@@ -26,7 +26,7 @@ System_Boundary(c2, "Backoffice") {
 }
 
 System_Boundary(c3, "Auth") {
-    Container(auth_api, "API Application", "Node, Typescript, Nestjs", "Business logic for all user authentication related processes")
+    Container(auth_api, "API Application", "Node, Typescript, Nestjs", "Business logic for all user authentication related processes", $tags="backendContainer")
 }
 
 System_Ext(message_queue, "Communication between contexts", "RabbitMQ")
