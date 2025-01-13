@@ -1,0 +1,12 @@
+services:
+  otakuverse_db:
+    image: postgres:17-alpine
+    container_name: otakuverse_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - ./database:/var/lib/postgresql/data
