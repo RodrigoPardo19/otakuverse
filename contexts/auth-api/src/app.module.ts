@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { DrizzlePGModule } from './drizzle-module/drizzle-pg.module';
 import * as schema from './shared/infrastructure/persistence/drizzle-schemas';
 import { AccountModule } from './accounts/account.module';
@@ -9,11 +7,13 @@ import { PermissionModule } from './permissions/permission.module';
 import { RoleModule } from './roles/role.module';
 import { SharedModule } from './shared/shared.module';
 import { ConfigModule } from '@nestjs/config';
+import configuration from '../configuration';
+import { validate } from '../.env.validation';
+import { AppController } from './app.controller';
 
-// TODO: Utilizar zod para la validación de las variables de entorno
 @Module({
 	imports: [
-		ConfigModule.forRoot({ isGlobal: true }),
+		ConfigModule.forRoot({ isGlobal: true, validate, load: [configuration] }),
 		DrizzlePGModule.register({
 			pg: {
 				connection: 'client',
@@ -36,6 +36,6 @@ import { ConfigModule } from '@nestjs/config';
 		PermissionModule
 	],
 	controllers: [AppController],
-	providers: [AppService]
+	providers: []
 })
 export class AppModule {}
