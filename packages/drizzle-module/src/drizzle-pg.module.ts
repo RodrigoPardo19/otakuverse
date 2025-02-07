@@ -1,5 +1,5 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { DrizzlePGConfig, DrizzleService } from './drizzle-pg.service';
+import { DrizzlePGConfig, DrizzleService } from './drizzle-pg.service.js';
 
 @Module({})
 export class DrizzlePGModule {

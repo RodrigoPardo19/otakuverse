@@ -6,7 +6,7 @@ export default function () {
 		},
 		database: {
 			host: process.env.DB_HOST,
-			port: process.env.DB_PORT ?? 5432,
+			port: +process.env.DB_PORT ?? 5432,
 			user: process.env.DB_USER,
 			password: process.env.DB_PASSWORD,
 			database: process.env.DB_DATABASE
@@ -17,20 +17,6 @@ export default function () {
 		}
 	};
 }
-
-// export interface EnvironmentVariables {
-// 	environment: {
-// 		NODE_ENV: string;
-// 		PORT: number;
-// 	};
-// 	database: {
-// 		host: string;
-// 		port: number;
-// 		user: string;
-// 		password: string;
-// 		database: string;
-// 	};
-// }
 
 export enum ENVIRONMENT {
 	DEVELOPMENT = 'development',

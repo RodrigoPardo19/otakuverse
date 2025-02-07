@@ -1,8 +1,11 @@
 import { PgTableWithColumns } from 'drizzle-orm/pg-core';
 import { drizzle } from 'drizzle-orm/node-postgres';
-import { Client, ClientConfig, Pool, PoolConfig } from 'pg';
+import { ClientConfig, PoolConfig } from 'pg'
 import { Injectable } from '@nestjs/common';
 import { DrizzleConfig } from 'drizzle-orm';
+import pg from 'pg';
+
+const { Client, Pool } = pg
 
 export interface Schema {
 	[key: string]: PgTableWithColumns<any>;
@@ -13,13 +16,12 @@ export interface DrizzlePGConfig {
 		connection: 'client' | 'pool';
 		config: ClientConfig | PoolConfig;
 	};
-	config: DrizzleConfig<any> | undefined;
+	config: DrizzleConfig<any>;
 }
 
 @Injectable()
 export class DrizzleService {
 	async getDrizzle(options: DrizzlePGConfig) {
-		console.log('obteniendo drizzle');
 		const { pg, config } = options;
 
 		if (pg.connection === 'pool') {
