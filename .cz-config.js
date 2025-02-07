@@ -16,7 +16,12 @@ module.exports = {
 		{ name: 'otakuverse-api' },
 		{ name: 'backoffice' },
 		{ name: 'backoffice-api' },
-		{ name: 'auth-api' }
+		{ name: 'auth-api' },
+		{ name: 'ui' },
+		{ name: 'typescript-config' },
+		{ name: 'prettier-config' },
+		{ name: 'eslint-config' },
+		{ name: 'drizzle-module' }
 	],
 	messages: {
 		type: "Select the type of change that you're committing:",
