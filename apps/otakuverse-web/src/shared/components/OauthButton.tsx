@@ -14,7 +14,7 @@ const providers = {
 
 export default function OauthButton({ provider }: Props) {
 	return (
-		<button className="flex w-64 cursor-pointer items-center justify-start rounded-lg border border-border bg-background px-4 py-3 text-sm font-bold hover:border-secondary hover:text-secondary active:border-secondary">
+		<button className="flex w-64 cursor-pointer items-center justify-start rounded-lg border border-border bg-background px-4 py-3 text-sm font-bold hover:border hover:border-black active:border-secondary focus:border-black">
 			{provider === 'google' ? (
 				<GoogleColorIcon />
 			) : provider === 'facebook' ? (

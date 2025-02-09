@@ -12,7 +12,7 @@ export default function Footer() {
 				<DiscordIcon width="2rem" height="2rem" className="cursor-pointer hover:text-primary" />
 				<GithubIcon width="2rem" height="2rem" className="cursor-pointer hover:text-primary" />
 			</div>
-			<div className="text-sm">©2024 All Rights Reserved to Otakuverse.</div>
+			<div className="text-sm">©2025 All Rights Reserved to Otakuverse.</div>
 		</footer>
 	);
 }

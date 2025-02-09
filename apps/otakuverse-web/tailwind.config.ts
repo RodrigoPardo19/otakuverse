@@ -12,9 +12,10 @@ const config: Config = {
 		extend: {
 			colors: {
 				background: 'var(--background)',
+				'bg-secondary': 'rgb(37 37 37)',
 				foreground: 'var(--foreground)',
 				primary: '#ed1c1a',
-				secondary: '#2893a3',
+				secondary: 'black',
 				border: '#444c56'
 			},
 			animation: {

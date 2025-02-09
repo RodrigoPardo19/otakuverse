@@ -28,13 +28,13 @@ const Field = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
 	return (
 		<>
 			<Form.Field name="label" className="flex flex-col gap-2">
-				<Form.Label>{label}</Form.Label>
+				<Form.Label className="font-semibold">{label}</Form.Label>
 				<div className="flex relative">
 					<Form.Control asChild>
 						<input
 							type={inputType}
 							ref={ref}
-							className="flex-1 rounded-lg border border-border bg-background px-4 py-2 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-secondary text-input"
+							className="flex-1 rounded-lg border border-border bg-bg-secondary px-4 py-2 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-black text-input placeholder-foreground"
 							aria-invalid={error ? true : false}
 							{...inputProps}
 						/>
