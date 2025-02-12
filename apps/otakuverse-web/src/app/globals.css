@@ -32,12 +32,12 @@ body {
 @layer components {
 
   .autofill-text:-webkit-autofill {
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: var(--foreground);
   }
 
   .text-input {
     @apply autofill-text;
-    @apply autofill:shadow-[inset_0_0_0px_1000px_#00141a];
+    @apply autofill:shadow-[inset_0_0_0px_1000px_#252525];
   }
 }
 

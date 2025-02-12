@@ -12,7 +12,7 @@ const config: Config = {
 		extend: {
 			colors: {
 				background: 'var(--background)',
-				'bg-secondary': 'rgb(37 37 37)',
+				'bg-secondary': '#252525',
 				foreground: 'var(--foreground)',
 				primary: '#ed1c1a',
 				secondary: 'black',
